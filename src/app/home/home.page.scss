@@ -1,0 +1,21 @@
+.xc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.fullheight {
+    height: 100%;
+  }
+  
+.hcs {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+.footer {
+    position: fixed;
+    bottom: 20px;
+}

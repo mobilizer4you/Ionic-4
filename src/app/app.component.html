@@ -1,0 +1,50 @@
+<ion-app>
+
+  <ion-menu contentId="main" side="start">
+    <ion-header>
+      <ion-toolbar color="dark">
+        <ion-title>
+          myCJ Menu
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+
+      <ion-list lines="none" class="ion-no-padding">
+        <ion-menu-toggle>
+          <ion-list-header color="light">Main Menu</ion-list-header>
+          <ion-item routerLink="/home" button>
+            <ion-icon name="home" slot="start"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+
+      <ion-list lines="none" class="ion-no-padding">
+        <ion-menu-toggle>
+          <ion-list-header routerLink="/offences" color="light">Offences</ion-list-header>
+          <ion-item *ngFor="let offencesname of offences">
+            <ion-item [routerLink]="['/offences/',offencesname.id]">
+              <ion-icon name="finger-print" slot="start"></ion-icon>
+              <ion-label>{{offencesname.offence}}</ion-label>
+            </ion-item>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+
+      <ion-list lines="none" class="ion-no-padding">
+        <ion-menu-toggle>
+          <ion-list-header routerLink="/papers" color="light">Case Papers</ion-list-header>
+          <ion-item *ngFor="let mgnumber of papers">
+            <ion-item  [routerLink]="['/papers/',mgnumber.id]">
+              <ion-icon name="copy" slot="start"></ion-icon>
+              <ion-label>{{mgnumber.mg_number}}</ion-label>
+            </ion-item>            
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

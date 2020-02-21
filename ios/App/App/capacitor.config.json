@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "myCJApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

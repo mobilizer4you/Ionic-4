@@ -1,0 +1,257 @@
+<ion-header>
+  <ion-buttons slot="start">
+    <ion-back-button color="light" defaultHref="/offences"></ion-back-button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content fullscreen="true" class="ion-no-padding">
+  <ion-grid class="ion-no-padding ion-no-margin">
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding ion-no-margin">
+        <ion-card class="ion-no-margin ion-no-padding" style="border-radius: 0px;">
+          <ion-card-content class="xc"
+            style="background: url('assets/img/offences_bg.png') repeat center center; padding-top: 16px;">
+            <h1 class="ion-text-center" style="color: #fff; font-weight: bolder; font-size: 60px;">{{ offence.offence }}
+            </h1>
+            <hr />
+            <h4 class="ion-text-center" style="color: #fff;">{{ offence.introText }}</h4>
+            <hr />
+            <ion-chip style="background-color: #003366;">
+              <ion-label style="color: #fff;">{{ offence.mode_id }}</ion-label>
+            </ion-chip>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card style="background: #ECF0F1 url('assets/img/male2.png') no-repeat bottom left; min-height: 200px;">
+          <ion-card-header>
+            <ion-card-title class="ion-text-right" style="font-size: 50px; font-weight: bold;">
+              Points to prove
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-padding ion-text-right" style="color: black;" *ngFor="let offenceone of offence.points">
+            <ion-icon slot="start" name="checkbox-outline" style="margin-right: 5px; font-size: 15px;"></ion-icon>
+            <ion-label style="font-size: 20px; font-weight: lighter;">{{offenceone.point_to_prove}}</ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card color="tertiary">
+          <ion-card-header>
+            <ion-card-title> 
+              Which forms should I complete for Guilty Anticipated Plea (GAP) case?
+            </ion-card-title>
+            <!-- <ion-card-content>
+              <p>And then loop through all the options (e.g. "Mandatory", "Optional" etc) under forms > GAP with the cards below:</p>
+            </ion-card-content> -->
+            <!-- This would be looped based on the options (*ngFor) -->
+            <ion-card color="light" *ngFor="let offenceforms of offence.forms.GAP | keyvalue">
+              <ion-card-header>
+                <ion-card-title>
+                  {{offenceforms.key}}
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <!-- This would be looped on what data is in forms > GAP > Whatever option (*ngFor) -->
+                <ion-card color="primary" *ngFor="let mgcontent of offenceforms.value">
+                  <ion-card color="primary" [routerLink]="mgcontent.id">
+                    <ion-card-header>
+                      <ion-card-title>
+                        {{mgcontent.mg_number}}
+                      </ion-card-title>
+                      <ion-card-content>
+                        {{mgcontent.description}}
+                      </ion-card-content>
+                    </ion-card-header>
+                  </ion-card>
+                </ion-card>
+                <!-- End loop for whatever is assigned to that option -->
+              </ion-card-content>
+            </ion-card>
+
+            <!-- Another example from the loop (I'll delete this) -->
+            <!-- <ion-card color="light">
+              <ion-card-header>
+                <ion-card-title>
+                  Mandatory if required for sentencing
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <!-- This would be looped on what data is in forms > GAP > Whatever option (*ngFor) -->
+                <!-- <ion-card color="primary">
+                  <ion-card-header>
+                    <ion-card-title>
+                      Whatever MG number this is
+                    </ion-card-title>
+                    <ion-card-content>
+                      This is the description field for this MG number
+                    </ion-card-content>
+                  </ion-card-header>
+                </ion-card>
+                <!-- End loop for whatever is assigned to that option -->
+              <!-- </ion-card-content>
+            </ion-card>  -->
+
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card color="tertiary">
+          <ion-card-header>
+            <ion-card-title> 
+              Which forms should I complete for Not Guilty Anticipated Plea (NGAP) case?
+            </ion-card-title>
+            <!-- This would be looped based on the options (*ngFor) -->
+            <ion-card color="light" *ngFor="let offenceforms of offence.forms.NGAP | keyvalue">
+              <ion-card-header>
+                <ion-card-title>
+                  {{offenceforms.key}}
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <!-- This would be looped on what data is in forms > GAP > Whatever option (*ngFor) -->
+                <ion-card color="primary" *ngFor="let mgcontent of offenceforms.value">
+                  <ion-card color="primary" [routerLink]="mgcontent.id">
+                    <ion-card-header>
+                        <ion-card-title>
+                          {{mgcontent.mg_number}}
+                        </ion-card-title>
+                        <ion-card-content>
+                          {{mgcontent.description}}
+                        </ion-card-content>
+                      </ion-card-header>
+                    </ion-card>
+                  </ion-card>
+                <!-- End loop for whatever is assigned to that option -->
+              </ion-card-content>
+            </ion-card>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <h1> DISREGARD THIS BELOW </h1>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-card color="tertiary">
+          <ion-card-header>
+            <ion-card-title>
+              <h1 class="ion-no-margin">Which MG forms must I complete?</h1>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="12" size-md="6">
+                <ion-card color="light">
+                  <ion-card-header>
+                    <ion-card-title>
+                      <h3 class="ion-no-margin">GAP Case File</h3>
+                    </ion-card-title>
+                  </ion-card-header>
+                  <h1>Mandatory</h1>
+                  <ion-card-content *ngFor="let onemandatory of offence.forms.GAP.Mandatory">
+                    <ion-card color="dark">
+                      <ion-card-content>
+                        {{onemandatory.mg_number}}
+                        <br />
+                        {{onemandatory.description}}
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-card-content>
+                  <h1>Optional</h1>
+                  <ion-card-content *ngFor="let oneoption of offence.forms.GAP.Optional">
+                    <ion-card color="dark">
+                      <ion-card-content>
+                        {{oneoption.mg_number}}
+                        <br />
+                        {{oneoption.description}}
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-card-content>
+                  <h1>Mandatory if suspect is on bail</h1>
+                  <ion-card-content>
+                    <ion-card color="dark">
+                      <ion-card-content>
+                        MG3
+                        <br />
+                        This is an example of intro text
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-card-content>
+                  <h1>Mandatory if the suspect is to be remanded in custody</h1>
+                  <ion-card-content>
+                    <ion-card color="dark">
+                      <ion-card-content>
+                        MG3
+                        <br />
+                        This is an example of intro text
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+              <ion-col size="12" size-md="6">
+                <ion-card color="light">
+                  <ion-card-header>
+                    <ion-card-title>
+                      <h3 class="ion-no-margin">NGAP Case File</h3>
+                    </ion-card-title>
+                  </ion-card-header>
+                  <h1>Mandatory</h1>
+                  <ion-card-content *ngFor="let onemandatory of offence.forms.NGAP.Mandatory">
+                    <ion-card color="dark">
+                      <ion-card-content>
+                        {{onemandatory.mg_number}}
+                        <br />
+                        {{onemandatory.description}}
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-card-content>
+                  <h1>Optional</h1>
+                  <ion-card-content *ngFor="let oneoption of offence.forms.NGAP.Optional">
+                    <ion-card color="dark">
+                      <ion-card-content>
+                        {{oneoption.mg_number}}
+                        <br />
+                        {{oneoption.description}}
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-card-content>
+                  <h1>Mandatory if suspect is on bail</h1>
+                  <ion-card-content>
+                    <ion-card color="dark">
+                      <ion-card-content>
+                        MG3
+                        <br />
+                        This is an example of intro text
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-card-content>
+                  <h1>Mandatory if the suspect is to be remanded in custody</h1>
+                  <ion-card-content>
+                    <ion-card color="dark">
+                      <ion-card-content>
+                        MG3
+                        <br />
+                        This is an example of intro text
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

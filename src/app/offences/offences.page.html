@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Offences</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card color="dark">
+          <ion-row>
+            <ion-col size="12" size-md="2">
+              <div class="xc ion-padding">
+                <img src="assets/img/female_face.png" style="height: 125px; width: 125px;">
+              </div>
+            </ion-col>
+            <ion-col size="12" size-md="10">
+              <div class="ion-text-center xc">
+                <h1 style="font-weight: normal; margin-top: 0px;">Let's take a look at some of our most common offences.</h1>
+                <h5 style="font-weight: lighter;">There are hundreds of different offences, but here are the most common ones we use to help you.</h5>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let offence of loadedOffences">
+        <ion-card color="tertiary" [routerLink]="offence.id">
+          <ion-row>
+            <ion-col size="12" size-md="3" style="background-color: #222428;">
+              <div class="xc">
+                <h1 style="font-size: 80px;"><ion-icon name="finger-print"></ion-icon></h1>
+              </div>
+            </ion-col>
+            <ion-col size="12" size-md="9">
+              <div class="ion-text-left xcnc ion-padding">
+                <h1 style="font-weight: normal; margin-top: 0px;">{{ offence.offence }}</h1>
+                <p style="font-weight: lighter; margin-top: 0px;">{{ offence.introText }}</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

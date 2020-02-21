@@ -1,0 +1,7 @@
+{
+  "name": "myCJApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

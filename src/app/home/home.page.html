@@ -1,0 +1,49 @@
+<ion-content class="ion-no-padding ion-no-margin">
+
+  <ion-row class="ion-no-padding fullheight">
+    <ion-col size="12" size-md="6" class="ion-no-padding" (click)="offenceClick()"
+      style="background: url('assets/img/offences_bg.png') repeat center center;">
+      <div class="fullheight xc">
+        <img src="assets/img/offence_icon.png"
+          style="height: 200px; width: 200px; margin-bottom: 10px; justify-content: center !important;">
+        <ion-card style="background-color: #9E392B;">
+          <ion-card-content class="ion-text-center" style="font-size: 20px; color: #fff">
+            I need help with a specific offence
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+    <ion-col size="12" size-md="6" style="background: url('assets/img/forms_bg.png') repeat center center">
+      <div class="fullheight xc">
+        <img src="assets/img/mg_form_icon.png"
+          style="height: 200px; width: 200px; margin-bottom: 10px; justify-content: center !important;">
+        <ion-card color="tertiary" (click)="papersClick()">
+          <ion-card-content class="ion-text-center" style="font-size: 20px;">
+            I need help with case papers
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <!-- <ion-card color="dark" class="ion-button" (click)="offenceClick()">
+        <ion-card-content class="ion-text-center ion-margin ion-no-padding">
+          <h1>
+            <ion-icon name="help-circle-outline"></ion-icon>
+          </h1>
+          <ion-label>
+            <h2><strong>I need help with a specific offence</strong></h2>
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card color="dark" (click)="papersClick()">
+        <ion-card-content class="ion-text-center ion-margin ion-no-padding">
+          <h1>
+            <ion-icon name="copy" slot="start"></ion-icon>
+          </h1>
+          <h2><strong>I need help with case papers</strong></h2>
+        </ion-card-content>
+      </ion-card> -->
+
+</ion-content>

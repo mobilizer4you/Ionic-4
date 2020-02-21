@@ -1,0 +1,7 @@
+ion-content {
+    --background: url('../../../assets/img/paper.jpg') no-repeat center center / cover;
+}
+
+ion-header::after {
+    background-image: none;
+}

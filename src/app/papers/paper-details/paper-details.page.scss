@@ -1,0 +1,11 @@
+ion-content {
+    --background: url('../../../assets/img/paper.jpg') no-repeat center center / cover;
+}
+
+.lj-bg {
+    --background: url('../../../assets/img/lady_justice.jpg') no-repeat center center / cover;
+}
+
+ion-header::after {
+    background-image: none;
+}
